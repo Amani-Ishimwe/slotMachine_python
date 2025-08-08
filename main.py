@@ -21,6 +21,7 @@ symbol_value = {
     "D": 2,
 }
 
+#function to check winnings
 def check_winnings(columns, lines, bet, values):
     winnings = 0
     winning_lines = []
@@ -36,6 +37,7 @@ def check_winnings(columns, lines, bet, values):
 
     return winnings, winning_lines
 
+#function to spin
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols =[]
     for symbol, symbol_count in symbols.items():
@@ -53,6 +55,7 @@ def get_slot_machine_spin(rows, cols, symbols):
         columns.append(column)
     return columns
 
+#function to print the output
 def print_slot_machine(columns):
     for row in range(len(columns[0])):
         for i, column in enumerate(columns):
@@ -62,6 +65,7 @@ def print_slot_machine(columns):
                 print(column[row], end="")
         print()
 
+#function to deposit
 def deposit():
     while True:
         amount = input("What Would You Like To Deposit? $")
@@ -75,6 +79,7 @@ def deposit():
             print("Please enter a valid number.")
     return amount      
 
+#function to determine the number of lines
 def get_number_of_lines():
     while True:
         lines = input("Enter the number of lines to bet on (1-3): ")
@@ -88,6 +93,8 @@ def get_number_of_lines():
             print("Please enter a valid number.")
     return lines
 
+
+#function to bet
 def get_bet():
     while True:
         bet = input("What is your bet per line? $")
@@ -121,6 +128,8 @@ def spin(balance):
     print("You won on lines:", *winning_lines)
     return winnings - total_bet
 
+
+#main function
 def main():
     balance = deposit()
     while True:
